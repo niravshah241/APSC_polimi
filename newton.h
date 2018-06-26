@@ -44,70 +44,70 @@ private :
 
   void
   solve (const double x0);
-
+  
   double
-  get_result ()
+    get_result ()
   { return x; };
-
+  
   double
-  get_residual ()
+    get_residual ()
   { return r; };
-
+  
   int
-  get_iter ()
+    get_iter ()
   { return iter; };
-
+  
 };
 
 class
 fd_newton_solver
-  : public abstract_newton_solver
+: public abstract_newton_solver
 {
-
-private :
+  
+ private :
   
   double
-  prime (const double x);
-
+    prime (const double x);
+  
   const double delta;
   
-public :
+ public :
   
   fd_newton_solver (const double delta_ = std::numeric_limits<double>::epsilon () * 10.0,
                     const int maxit_ = 100,
                     const double funtol_ = std::numeric_limits<double>::epsilon () * 1000.0,
                     const double xtol_ = std::numeric_limits<double>::epsilon () * 1000.0)
     : delta(delta_), abstract_newton_solver(maxit_, funtol_, xtol_) {};
-
+  
 };
 
 
 class
 cs_newton_solver
-  : public abstract_newton_solver
+: public abstract_newton_solver
 {
-
-protected :
-
+  
+ protected :
+  
   virtual
-  std::complex<double>
-  eval (const std::complex<double> x) = 0;
-
-private :
+    std::complex<double>
+    eval (const std::complex<double> x) = 0;
+  
+ private :
   
   double
-  prime (const double x);
-
+    prime (const double x);
+  
   const double delta;
   
-public :
+ public :
   
   cs_newton_solver (const double delta_ = 1.0e-100,
                     const int maxit_ = 100,
                     const double funtol_ = std::numeric_limits<double>::epsilon () * 1000.0,
                     const double xtol_ = std::numeric_limits<double>::epsilon () * 1000.0)
     : delta(delta_), abstract_newton_solver(maxit_, funtol_, xtol_) {};
-
+  
 };
 
 #endif

@@ -17,14 +17,14 @@ abstract_newton_solver::solve (const double x0)
 }
 
 // Implement the method "fd_newton_solver::prime" using centered finite
-// differences with a step "delta"
+// differences with  step "delta"
 // double
 // fd_newton_solver::prime (const double x)
 // { ... }
 
 
 // Implement the method "cs_newton_solver::prime" using the
-// complex step method differences with a step "delta"
+// complex step method differences with  step "delta"
 // double
 // cs_newton_solver::prime (const double x)
 // { ... }

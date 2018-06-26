@@ -1,3 +1,6 @@
+CXX=g++
+CXXFLAGS=-Wall -std=c++14
+CC=$(CXX)
 all : newton_example
 
 newton_example : main.o newton.o
